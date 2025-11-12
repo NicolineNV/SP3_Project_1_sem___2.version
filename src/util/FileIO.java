@@ -22,7 +22,7 @@ public class FileIO {
 
         public String readUserInput() {
             String userInput = scan.nextLine();
-            return readUserInput();
+            return userInput;
         }
 
         public ArrayList<String> readData (String userSearch) {
