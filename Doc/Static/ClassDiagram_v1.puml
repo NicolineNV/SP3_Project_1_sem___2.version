@@ -1,15 +1,78 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+!pragma layout smetana
 
-autonumber
+class UserAccount {
+- String userName;
+- String password;
+- ArrayList <String> accountDoc;
 
-== Initialization ==
+- loginMenu();
+- createAccount ();
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class UsersMedia {
+- ArrayList <String> savedDoc;
+- ArrayList <String> watchedDoc;
 
-== Repetition ==
+updateSavedDoc ();
+setSavedDoc ();
+saveSavedDoc ();
+updateWatchedDoc ();
+setWatchedDoc ();
+saveWatchedDoc ();
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+searchAndAct ();
+}
+
+class Super_MediaSearch {
++ searchMediaTitle ();
++ searchMediaCategory ();
+}
+
+interface IMedia {
+String loadTitle ();
+String loadCategories ();
+double loadRating ();
+int loadYear ();
+}
+
+class Movie {
+
++ getMovie ();
+}
+
+class Serie {
+- String seriesLength;
+
++ getSerie ();
+}
+
+package util {
+
+class TextUI {
++ String displayMessage ();
++ String promptText ();
++ boolean promptQuestion ();
++ String IOExceptionMessage ();
+}
+
+
+
+class FileIO {
++ String readUserInput ();
++ String readFile ();
+}
+
+}
+
+IMedia <|-- Serie
+IMedia <|-- Movie
+
+Super_MediaSearch *-- Movie
+Super_MediaSearch *-- Serie
+
+UsersMedia *-- Super_MediaSearch
+UsersMedia *-- UserAccount
+
+
 @enduml
