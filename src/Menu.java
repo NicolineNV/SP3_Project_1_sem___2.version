@@ -7,7 +7,7 @@ public class Menu {
     MediaSearch search = new MediaSearch(" ");
 
 
-    public String mainMenu() {
+    public void mainMenu() {
         String selected = tui.promptText("""
                 Welcome to the Menu, what do you want to do?:\
                 
@@ -48,6 +48,5 @@ public class Menu {
                 break;
         }
 
-        return "";
     }
 }
