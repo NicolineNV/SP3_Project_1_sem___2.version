@@ -27,7 +27,7 @@ public class Menu {
                 movie.getmovie();
                 System.out.println(Movie.line);
 
-                search.UsersAcctionsWatchedSavedControl(Movie.line);
+                search.UsersActionsWatchedSavedControl(Movie.line);
                 break;
 
             case "S": // Series

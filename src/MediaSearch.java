@@ -16,7 +16,7 @@ public class MediaSearch {
         this.userMovieChoice = userMovieChoice;
     }
 
-    public String UsersAcctionsWatchedSavedControl(String userMovieChoice) {
+    public String UsersActionsWatchedSavedControl(String userMovieChoice) {
               //Læser SavedDokument og laver et Array
         try (Scanner scan = new Scanner(new File("Data/docSav.csv"))) {
             while (scan.hasNextLine()) {

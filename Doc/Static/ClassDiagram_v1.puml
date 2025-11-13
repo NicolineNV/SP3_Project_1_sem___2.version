@@ -2,17 +2,17 @@
 !pragma layout smetana
 
 class UserAccount {
-- String userName;
-- String password;
-- ArrayList <String> accountDoc;
+String userName;
+String password;
+ArrayList <String> accountDoc;
 
-- loginMenu();
-- createAccount ();
+loginMenu();
+createAccount ();
 }
 
 class UsersMedia {
-- ArrayList <String> savedDoc;
-- ArrayList <String> watchedDoc;
+ArrayList <String> savedDoc;
+ArrayList <String> watchedDoc;
 
 updateSavedDoc ();
 setSavedDoc ();
@@ -42,7 +42,7 @@ class Movie {
 }
 
 class Serie {
-- String seriesLength;
+String seriesLength;
 
 + getSerie ();
 }
@@ -68,11 +68,11 @@ class FileIO {
 IMedia <|-- Serie
 IMedia <|-- Movie
 
-Super_MediaSearch *-- Movie
-Super_MediaSearch *-- Serie
+Super_MediaSearch -- Movie
+Super_MediaSearch-- Serie
 
-UsersMedia *-- Super_MediaSearch
-UsersMedia *-- UserAccount
+UsersMedia -- Super_MediaSearch
+UsersMedia-- UserAccount
 
 
 @enduml

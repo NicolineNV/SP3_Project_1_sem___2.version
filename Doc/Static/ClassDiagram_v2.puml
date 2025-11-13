@@ -1,0 +1,99 @@
+@startuml
+!pragma layout smetana
+
+class UserAccount {
+- String userName;
+- String password;
+- ArrayList <String> userNamesDoc;
+- ArrayList <String> passWordDoc;
+
+- String userNamesDoc ();
+- String passWordDoc ();
+- String userName ();
+- String password ();
++ void welcome ();
+- String createAccount ();
+- String login();
+- String threeOptions ();
+
+}
+
+class MediaSearch {
+- String username;
++ String userMovieChoice;
++ ArrayList <String> watchSaved;
+
++ String UsersActionsWatchedSavedControl ();
+
+}
+
+interface IMedia {
+String loadTitle ();
+String loadCategories ();
+double loadRating ();
+int loadYear ();
+
+}
+
+class Movie {
++ static String line;
++ static ArrayList <String> movieArray;
+
++ String getMovie ();
+}
+
+class Serie {
+- String seriesLength;
+
++ String getSerie ();
+}
+
+package util {
+
+class TextUI {
++ String displayMessage ();
++ String promptText ();
++ boolean promptQuestion ();
++ static String IOExceptionMessage ();
+}
+
+
+
+class FileIO {
+- String userSearch;
+- String path;
+- Scanner scan;
+
++ String readUserInput ();
++ ArrayList <String> readData ();
+}
+
+}
+
+class Super_Menu {
++ void mainMenu();
+}
+
+class LoopMainMenuSolution{
++ String solution();
+}
+
+class Main{
++ static void main (String[] args);
+}
+
+
+IMedia <|-- Serie
+IMedia <|-- Movie
+
+Main *-- Super_Menu
+
+Super_Menu *-- MediaSearch
+
+MediaSearch *-- Movie
+MediaSearch *-- Serie
+MediaSearch *-- LoopMainMenuSolution
+MediaSearch *-- UserAccount
+
+
+@enduml
