@@ -32,7 +32,7 @@ public class Movie {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int userMovieChoice = Integer.parseInt(tui.promptText("\nWhich movie would you like to watch? Please enter the name number of the movie"));
+        int userMovieChoice = Integer.parseInt(tui.promptText("\nWhich movie would you like to watch? Please enter the number of the movie"));
         line = movieArray.get(userMovieChoice);
         return "";
     }
