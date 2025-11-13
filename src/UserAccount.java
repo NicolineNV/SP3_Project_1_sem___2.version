@@ -22,14 +22,9 @@ public class UserAccount {
 
     //Updaterer informationerne fra userNamesDoc og laver en ny ArrayList
     private String userNamesDoc() {
-        try {
-            File file = new File("Data/Accountinfo.csv");
-            Scanner scan = new Scanner(file);
-            int p = 0;
+        try (Scanner scan = new Scanner(new File("Data/Accountinfo.csv"))){
             while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                userNamesDoc.add(p, line);
-                p++;
+                userNamesDoc.add(scan.nextLine());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,14 +34,9 @@ public class UserAccount {
 
     //Updaterer informationerne fra passWordDoc og laver en ny ArrayList
     private String passWordDoc() {
-        try {
-            File file = new File("Data/UsernameDoc.csv");
-            Scanner scan = new Scanner(file);
-            int p = 0;
+        try (Scanner scan = new Scanner(new File("Data/Accountinfo.csv"))){
             while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                passWordDoc.add(p, line);
-                p++;
+                passWordDoc.add(scan.nextLine());
             }
         } catch (IOException e) {
             e.printStackTrace();
