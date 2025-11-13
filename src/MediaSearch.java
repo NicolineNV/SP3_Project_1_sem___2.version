@@ -6,7 +6,7 @@ import java.util.*;
 
 public class MediaSearch {
 
-    private String username = "Hans"; // lav kobling til login brugeren istedet
+    private String username = "Hans"; // lav kobling til login brugeren i stedet
     public String userMovieChoice;
     public ArrayList<String> watchSaved = new ArrayList<>();
     LoopMainMenuSolution runMenu = new LoopMainMenuSolution();
@@ -17,7 +17,7 @@ public class MediaSearch {
     }
 
     public String UsersActionsWatchedSavedControl(String userMovieChoice) {
-              //Læser SavedDokument og laver et Array
+              //Reads SavedDokument and makes an Array
         try (Scanner scan = new Scanner(new File("Data/docSav.csv"))) {
             while (scan.hasNextLine()) {
                 watchSaved.add(scan.nextLine());
@@ -76,12 +76,34 @@ public class MediaSearch {
             }
         }
         // you end here if the movie or serie is not on one of the list
-        //if() nået her til
+        if(!watchSaved.contains(username + ", " + userMovieChoice + "Watched") && !watchSaved.contains(username + ", " + userMovieChoice + "Saved")){
+            String userInput = tui.promptText("W: Watch? \n S: Save \n B Go back to menu");
+
+            switch (userInput.toUpperCase()) {
+                case "W":
+
+                    break;
+
+                case "S":
+
+                    break;
+
+                case "B":
+                    //This method takes you back to menu...
+                    runMenu.solution();
+
+                    break;
+
+                default:
+                    tui.displayMessage("not vailibul input");
+            }
+        }
+
 
         try {
             BufferedWriter movieSavedAndWatched = new BufferedWriter(new FileWriter("Data/docSav.csv"));
             for (String runLine : watchSaved)
-                movieSavedAndWatched.write(runLine);
+                movieSavedAndWatched.write(runLine+"\n");
             movieSavedAndWatched.close();
         } catch (IOException e) {
             e.printStackTrace();
