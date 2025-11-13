@@ -4,6 +4,7 @@ public class Menu {
 
     TextUI tui = new TextUI();
     Movie movie = new Movie();
+    Serie serie = new Serie();
     MediaSearch search = new MediaSearch(" ");
 
 
@@ -31,7 +32,10 @@ public class Menu {
                 break;
 
             case "S": // Series
+                serie.getseries();
+                System.out.println(Serie.line);
 
+                search.UsersActionsWatchedSavedControl(Serie.line);
                 break;
 
             case "C": // Categories
